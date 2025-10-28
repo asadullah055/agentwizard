@@ -45,7 +45,7 @@ export default function BookDemo() {
         <div className="border border-slate-200 rounded-lg overflow-hidden" style={{ height: 700 }}>
           <Cal
             namespace="30min"
-            calLink="quantumautomations.ai/30min"
+            calLink="asadullah01/30min"
             style={{ width: '100%', height: '100%', overflow: 'auto' }}
             config={{ layout: 'month_view', theme: 'auto', name, email }}
           />

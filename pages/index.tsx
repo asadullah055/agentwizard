@@ -125,7 +125,8 @@ const Landing: React.FC = () => {
             Also see HBR:{" "}
             <a
               className="underline text-blue-600 hover:text-blue-700"
-              href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads"
+              // href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads"
+              href="#"
               target="_blank"
               rel="noreferrer"
             >
@@ -157,7 +158,8 @@ const Landing: React.FC = () => {
               </div>
               <a
                 className="mt-3 inline-block text-sm text-blue-600 hover:text-blue-700 underline"
-                href="https://www.insidesales.com/response-time-matters/"
+                // href="https://www.insidesales.com/response-time-matters/"
+                href="#"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -177,7 +179,8 @@ const Landing: React.FC = () => {
               </div>
               <a
                 className="mt-3 inline-block text-sm text-blue-600 hover:text-blue-700 underline"
-                href="https://cdn2.hubspot.net/hub/25649/file-13535879-pdf/docs/mit_study.pdf"
+                // href="https://cdn2.hubspot.net/hub/25649/file-13535879-pdf/docs/mit_study.pdf"
+                href="#"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -198,7 +201,8 @@ const Landing: React.FC = () => {
               </div>
               <a
                 className="mt-3 inline-block text-sm text-blue-600 hover:text-blue-700 underline"
-                href="https://dasha.ai/en-us/blog/case-studies-successful-implementations-of-voice-ai-in-cold-calling"
+                /* href="https://dasha.ai/en-us/blog/case-studies-successful-implementations-of-voice-ai-in-cold-calling" */
+                href="#"
                 target="_blank"
                 rel="noreferrer"
               >

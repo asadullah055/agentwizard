@@ -1,22 +1,9 @@
 {
   "/_app": "pages/_app.js",
-  "/api/call-jobs/control": "pages/api/call-jobs/control.js",
-  "/api/calls/start": "pages/api/calls/start.js",
-  "/api/call-jobs/create": "pages/api/call-jobs/create.js",
-  "/api/contacts": "pages/api/contacts.js",
-  "/book-demo": "pages/book-demo.html",
-  "/history": "pages/history.html",
-  "/api/retell-create-web-call": "pages/api/retell-create-web-call.js",
-  "/dashboard": "pages/dashboard.html",
-  "/contacts": "pages/contacts.html",
-  "/demo": "pages/demo.html",
-  "/how-it-works": "pages/how-it-works.html",
-  "/": "pages/index.html",
-  "/schedule": "pages/schedule.html",
-  "/settings/agents": "pages/settings/agents.html",
-  "/test-calls": "pages/test-calls.html",
   "/_error": "pages/_error.js",
-  "/api/contacts/import": "pages/api/contacts/import.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/dashboard": "pages/dashboard.js",
+  "/test-calls": "pages/test-calls.js",
+  "/book-demo": "pages/book-demo.js",
+  "/settings/agents": "pages/settings/agents.js"
 }
