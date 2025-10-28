@@ -1,4 +1,3 @@
-import CsvUploadWizard from "@/components/contacts/CsvUploadWizard";
 import {
   AlertCircle,
   Brain,
@@ -490,7 +489,7 @@ const ContactsPage: React.FC = () => {
         </div>
         {/* 👇👇👇 New section for CSV upload */}
         <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-200/50">
-          <CsvUploadWizard />
+          {/* <CsvUploadWizard /> */}
         </div>
         {/* Search and Filters */}
         <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-200/50">

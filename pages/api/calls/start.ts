@@ -1,11 +1,10 @@
+import { getProvider } from "@/lib/telephony";
 import { createClient } from "@supabase/supabase-js";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getTelephonyProvider } from "../../lib/telephony";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-);
+const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabase = createClient(url, key);
 
 interface StartCallRequest {
   agentId: string;
@@ -57,7 +56,7 @@ export default async function handler(
     }
 
     // 4. Start call via provider
-    const provider = getTelephonyProvider(agent.provider);
+    const provider = getProvider(agent.provider);
 
     const result = await provider.startCall({
       agentExternalId: agent.external_agent_id,

@@ -4,10 +4,9 @@ import { getProvider } from "@/lib/telephony";
 import { ProviderName } from "@/lib/telephony/TelephonyProvider";
 import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-);
+const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabase = createClient(url, key);
 
 interface Agent {
   id: string;

@@ -1,4 +1,3 @@
-import TestCallComponent from "@/components/TestCallComponent";
 import {
   Building,
   Calendar,
@@ -393,7 +392,7 @@ export default function TestCalls() {
             </Button>
           </div>
         )}
-        <TestCallComponent />
+        {/* <TestCallComponent /> */}
         {/* Page-specific header removed to avoid duplication with Layout header */}
 
         {/* Segmented control */}

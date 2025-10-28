@@ -139,10 +139,9 @@ import formidable from "formidable";
 import fs from "fs/promises";
 import { NextApiRequest, NextApiResponse } from "next";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabase = createClient(url, key);
 
 export const config = {
   api: {
@@ -218,8 +217,22 @@ export default async function handler(
     // Read the file content
     const fileContent = await fs.readFile(file.filepath, "utf-8");
 
-    // Parse CSV
-    const records = csvParse(fileContent, {
+    interface CSVRow {
+      first_name?: string;
+      firstname?: string;
+      last_name?: string;
+      lastname?: string;
+      name?: string;
+      email?: string;
+      phone?: string;
+      phone_number?: string;
+      mobile?: string;
+      phone_e164?: string;
+      tags?: string;
+      source?: string;
+    }
+
+    const records = csvParse<CSVRow>(fileContent, {
       columns: true,
       skip_empty_lines: true,
       trim: true,
