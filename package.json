@@ -1,0 +1,48 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "Demo dashboard",
+  "main": "pages/index.tsx",
+  "scripts": {
+    "dev": "next dev",
+    "dev-live": "netlify dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next build",
+    "serve": "npx http-server . -p 8080",
+    "build-static": "npm run optimize",
+    "optimize": "mkdir -p dist && cp index.html dist/ && cp -r components dist/ && cp -r data dist/ && cp -r lib dist/ && cp -r styles dist/ && cp -r public dist/",
+    "netlify-build": "next build"
+  },
+  "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
+    "@supabase/supabase-js": "^2.76.1",
+    "@types/node": "^22.8.0",
+    "@types/react": "^18.3.12",
+    "clsx": "^2.1.1",
+    "csv-parse": "^6.1.0",
+    "csv-parser": "^3.2.0",
+    "formidable": "^3.5.4",
+    "lucide-react": "^0.446.0",
+    "next": "^15.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.12.7",
+    "retell-client-js-sdk": "^2.0.7",
+    "retell-sdk": "^4.41.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.6.0",
+    "uuid": "^13.0.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.14.0",
+    "eslint-config-next": "^15.0.3",
+    "http-server": "^14.1.1",
+    "postcss": "^8.4.47"
+  }
+ 
+}

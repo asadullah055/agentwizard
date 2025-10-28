@@ -1,0 +1,5 @@
+# API calls - return 404 for demo mode since we don't have backend
+/api/*  /404.html  404
+
+# SPA fallback - serve index.html for all other routes
+/*  /index.html  200 
