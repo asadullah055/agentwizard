@@ -56,7 +56,7 @@ const Landing: React.FC = () => {
     try {
       localStorage.setItem("landingSuggestSeen", "1");
     } catch {}
-    if (variant === "B") router.push("/demo");
+    if (variant === "B") router.push("/dashboard");
     else router.push("/test-calls");
   };
 
@@ -100,7 +100,7 @@ const Landing: React.FC = () => {
               onClick={goPrimary}
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white px-5 py-3 text-base font-semibold shadow-lg shadow-blue-500/20 hover:from-blue-600 hover:to-purple-700"
             >
-              {variant === "B" ? "See demo live →" : "Try voice agent →"}
+              {variant === "B" ? "Open Dashboard →" : "Open Dashboard →"}
             </button>
           </div>
 
@@ -345,7 +345,7 @@ const Landing: React.FC = () => {
                   onClick={goPrimary}
                   className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white px-5 py-3 font-semibold shadow-lg shadow-blue-500/20 hover:from-blue-600 hover:to-purple-700"
                 >
-                  {variant === "B" ? "See demo live →" : "Try voice agent →"}
+                  {variant === "B" ? "Open Dashboard →" : "Open Dashboard →"}
                 </button>
               </div>
             </div>
@@ -422,7 +422,7 @@ const Landing: React.FC = () => {
                 onClick={goPrimary}
                 className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-lg hover:from-blue-700 hover:to-purple-700"
               >
-                {variant === "B" ? "See demo live →" : "Try voice agent →"}
+                {variant === "B" ? "Open Dashboard →" : "Open Dashboard →"}
               </button>
               <button
                 onClick={() => router.push("/test-calls")}

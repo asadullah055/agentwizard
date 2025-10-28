@@ -1,14 +1,25 @@
-import React, { useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-const Cal = dynamic(() => import('@calcom/embed-react').then((m) => m.default), { ssr: false });
+const Cal = dynamic(
+  () => import("@calcom/embed-react").then((m) => m.default),
+  { ssr: false }
+);
 
-type CalApi = (action: 'ui', payload: { hideEventTypeDetails?: boolean; layout?: 'month_view' | 'week_view' | 'day_view' }) => void;
+type CalApi = (
+  action: "ui",
+  payload: {
+    hideEventTypeDetails?: boolean;
+    layout?: "month_view" | "week_view" | "day_view";
+  }
+) => void;
 type GetCalApi = () => Promise<CalApi>;
 
-const LOOM_URL: string = process.env.NEXT_PUBLIC_LOOM_DEMO_URL || 'https://www.loom.com/embed/00000000000000000000000000000000';
-const CAL_LINK: string = process.env.NEXT_PUBLIC_CAL_LINK || 'quantumautomations.ai/30min';
+const LOOM_URL: string =
+  process.env.NEXT_PUBLIC_LOOM_DEMO_URL ||
+  "https://www.loom.com/embed/00000000000000000000000000000000";
+const CAL_LINK: string = "asadullah01/30min";
 
 export default function Demo() {
   const router = useRouter();
@@ -17,16 +28,22 @@ export default function Demo() {
     let mounted = true;
     (async () => {
       try {
-        const { getCalApi } = await import('@calcom/embed-react');
-        const api = (await (getCalApi as GetCalApi)());
+        const { getCalApi } = await import("@calcom/embed-react");
+        const api = await (getCalApi as GetCalApi)();
         if (!mounted) return;
-        api('ui', { hideEventTypeDetails: false, layout: 'month_view' });
+        api("ui", { hideEventTypeDetails: false, layout: "month_view" });
         // Mark booking complete when a Cal event is scheduled
-        window.addEventListener('message', (evt: MessageEvent) => {
+        window.addEventListener("message", (evt: MessageEvent) => {
           try {
             const data = evt.data as unknown;
-            if (typeof data === 'object' && data && (data as Record<string, unknown>).event && (data as Record<string, unknown>).action === 'bookingSuccessful') {
-              if (typeof window !== 'undefined') window.localStorage.setItem('demo:booking-confirmed', '1');
+            if (
+              typeof data === "object" &&
+              data &&
+              (data as Record<string, unknown>).event &&
+              (data as Record<string, unknown>).action === "bookingSuccessful"
+            ) {
+              if (typeof window !== "undefined")
+                window.localStorage.setItem("demo:booking-confirmed", "1");
             }
           } catch {}
         });
@@ -44,7 +61,7 @@ export default function Demo() {
         <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
           <div className="font-semibold">Voice AI — Live Demo</div>
           <button
-            onClick={() => router.push('/')}
+            onClick={() => router.push("/")}
             className="text-sm text-blue-600 hover:text-blue-700"
           >
             ← Back to site
@@ -66,13 +83,19 @@ export default function Demo() {
               />
             </div>
             <p className="mt-3 text-xs text-slate-500">
-              Note: This demo shows a generic implementation. Your production setup is customized to your CRM, lead lists, and follow-up workflows.
+              Note: This demo shows a generic implementation. Your production
+              setup is customized to your CRM, lead lists, and follow-up
+              workflows.
             </p>
           </div>
           <div className="lg:col-span-2">
             <h1 className="text-2xl md:text-3xl font-bold">See it in action</h1>
             <p className="mt-3 text-slate-700">
-              Watch how the AI caller works from Call History: it dials each lead once per day during their local time windows (before work, lunch, after work), captures outcomes, books meetings, and updates the CRM automatically. Agents then focus only on hot leads with meeting-booked or interested outcomes.
+              Watch how the AI caller works from Call History: it dials each
+              lead once per day during their local time windows (before work,
+              lunch, after work), captures outcomes, books meetings, and updates
+              the CRM automatically. Agents then focus only on hot leads with
+              meeting-booked or interested outcomes.
             </p>
             <ul className="mt-5 space-y-2 text-slate-700 text-sm">
               <li>• Automated daily call cadence with time-zone awareness</li>
@@ -97,21 +120,29 @@ export default function Demo() {
       <section id="book" className="border-t border-slate-200 bg-white/60">
         <div className="mx-auto max-w-6xl px-6 py-10">
           <h2 className="text-xl md:text-2xl font-bold">Pick a time to talk</h2>
-          <p className="text-slate-600 mt-1">We’ll walk through how we tailor this to your systems and process.</p>
-          <div className="mt-5 border border-slate-200 rounded-xl overflow-hidden" style={{ height: 700 }}>
+          <p className="text-slate-600 mt-1">
+            We’ll walk through how we tailor this to your systems and process.
+          </p>
+          <div
+            className="mt-5 border border-slate-200 rounded-xl overflow-hidden"
+            style={{ height: 700 }}
+          >
             <Cal
               namespace="30min-demo"
               calLink={CAL_LINK}
-              style={{ width: '100%', height: '100%', overflow: 'auto' }}
-              config={{ layout: 'month_view', theme: 'auto' }}
+              style={{ width: "100%", height: "100%", overflow: "auto" }}
+              config={{ layout: "month_view", theme: "auto" }}
             />
           </div>
           <div className="mt-4 text-sm text-slate-600">
-            After booking, you’ll be able to access the live agent test. If you already booked, <a href="/test-calls" className="underline text-blue-700">continue to the test →</a>
+            After booking, you’ll be able to access the live agent test. If you
+            already booked,{" "}
+            <a href="/test-calls" className="underline text-blue-700">
+              continue to the test →
+            </a>
           </div>
         </div>
       </section>
     </div>
   );
 }
-
